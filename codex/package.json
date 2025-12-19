@@ -1,0 +1,91 @@
+{
+  "name": "markdown-list-table-toggler",
+  "displayName": "Markdown List-Table Toggler",
+  "description": "Toggle Markdown list blocks and table blocks with context-aware conversion.",
+  "version": "0.0.1",
+  "publisher": "codex",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "main": "./dist/extension.js",
+  "activationEvents": [
+    "onCommand:markdownListTableToggler.toggle",
+    "onLanguage:markdown"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "markdownListTableToggler.toggle",
+        "title": "Toggle List/Table"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "markdownListTableToggler.toggle",
+        "key": "ctrl+shift+t",
+        "when": "editorTextFocus && editorLangId == markdown"
+      }
+    ],
+    "configuration": {
+      "title": "Markdown List-Table Toggler",
+      "properties": {
+        "markdownListTableToggler.rootHeaderName": {
+          "type": "string",
+          "default": "Item",
+          "description": "Header name for the first (root) column."
+        },
+        "markdownListTableToggler.outputEmptyKeys": {
+          "type": "boolean",
+          "default": true,
+          "description": "Output keys for empty table cells during table-to-list conversion."
+        },
+        "markdownListTableToggler.valueEscapeStyle": {
+          "type": "string",
+          "enum": [
+            "none",
+            "smart",
+            "always"
+          ],
+          "default": "none",
+          "description": "Value quoting strategy during table-to-list conversion."
+        },
+        "markdownListTableToggler.listMarkerStyle": {
+          "type": "string",
+          "enum": [
+            "bullet",
+            "ordered",
+            "asterisk"
+          ],
+          "default": "bullet",
+          "description": "List marker style during table-to-list conversion."
+        },
+        "markdownListTableToggler.formatTable": {
+          "type": "boolean",
+          "default": true,
+          "description": "Align table column widths during list-to-table conversion."
+        },
+        "markdownListTableToggler.smartPipeEscape": {
+          "type": "boolean",
+          "default": true,
+          "description": "Avoid escaping pipes inside code spans or code fences."
+        },
+        "markdownListTableToggler.flattenNestedKeys": {
+          "type": "boolean",
+          "default": true,
+          "description": "Flatten nested list keys using dot notation during list-to-table conversion."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "build": "tsc -p .",
+    "watch": "tsc -watch -p ."
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.80.0",
+    "typescript": "^5.2.2"
+  }
+}
