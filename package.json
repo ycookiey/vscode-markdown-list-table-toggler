@@ -1,9 +1,20 @@
 {
   "name": "markdown-list-table-toggler",
   "displayName": "Markdown List-Table Toggler",
-  "description": "Toggle Markdown list blocks and table blocks with context-aware conversion.",
+  "description": "Convert the Markdown list or table under the cursor into the other form with one command.",
   "version": "0.0.1",
-  "publisher": "codex",
+  "publisher": "ycookiey",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ycookiey/vscode-markdown-list-table-toggler.git"
+  },
+  "keywords": [
+    "markdown",
+    "table",
+    "list",
+    "convert"
+  ],
   "engines": {
     "vscode": "^1.80.0"
   },
@@ -81,6 +92,7 @@
     }
   },
   "scripts": {
+    "vscode:prepublish": "npm run build",
     "build": "tsc -p .",
     "watch": "tsc -watch -p ."
   },
